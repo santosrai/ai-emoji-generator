@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/components/header";
 import { useUser } from "@clerk/nextjs";
 import { SignInButton, useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation"; // Import useRouter
@@ -21,26 +22,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="flex justify-between items-center p-4 bg-white shadow">
-        <div className="text-2xl font-bold text-black">Logo</div>
-        <nav className="space-x-4">
-          <a href="#about" className="text-black hover:text-blue-500">About</a>
-          <a href="#how-it-works" className="text-black hover:text-blue-500">How it Works</a>
-          <a href="#pricing" className="text-black hover:text-blue-500">Pricing</a>
-          {!isSignedIn ? (
-            <SignInButton mode="modal">
-              <button className="text-black hover:text-blue-500">Sign In</button>
-            </SignInButton>
-          ) : (
-            <button 
-              onClick={() => router.push("/dashboard")} 
-              className="text-black hover:text-blue-500"
-            >
-              Dashboard
-            </button>
-          )}
-        </nav>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <main className="flex-grow flex flex-col items-center justify-center">
